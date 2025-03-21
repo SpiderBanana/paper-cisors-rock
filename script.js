@@ -1,8 +1,6 @@
-// Ce fichier contient désormais la logique du jeu en utilisant la prédiction de la webcam de Teachable Machine.
-
 let userGesture = '';
 let botGesture = '';
-const gestures = ['caillou', 'feuille', 'ciseau'];
+const gestures = ['pierre', 'feuille', 'ciseau'];
 
 // Scores
 let playerScore = 0;
@@ -61,8 +59,8 @@ function determineWinner() {
     if (userGesture === botGesture) {
         displayResult("Match nul !");
     } else if (
-        (userGesture === 'caillou' && botGesture === 'ciseau') ||
-        (userGesture === 'feuille' && botGesture === 'caillou') ||
+        (userGesture === 'pierre' && botGesture === 'ciseau') ||
+        (userGesture === 'feuille' && botGesture === 'pierre') ||
         (userGesture === 'ciseau' && botGesture === 'feuille')
     ) {
         playerScore++;

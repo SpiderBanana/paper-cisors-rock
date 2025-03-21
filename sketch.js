@@ -36,22 +36,29 @@ const URL = "https://teachablemachine.withgoogle.com/models/g_mttcAyJ/";
     }
 
     // run the webcam image through the image model
-    async function predict() {
-        // predict can take in an image, video or canvas html element
-        const prediction = await model.predict(webcam.canvas);
-        for (let i = 0; i < maxPredictions; i++) {
-            const classPrediction =
-                prediction[i].className + ": " + prediction[i].probability.toFixed(2);
-            labelContainer.childNodes[i].innerHTML = classPrediction;
-        }
-    }
 
-async function predict() {
-    const prediction = await model.predict(webcam.canvas);
-    window.currentPredictions = prediction;
-    for (let i = 0; i < maxPredictions; i++) {
-        const classPrediction =
-            prediction[i].className + ": " + prediction[i].probability.toFixed(2);
-        labelContainer.childNodes[i].innerHTML = classPrediction;
+
+    async function predict() {
+        const prediction = await model.predict(webcam.canvas);
+        window.currentPredictions = prediction;
+    
+        // Déterminer le meilleur geste selon la probabilité
+        let bestGesture = '';
+        let maxProb = 0;
+        for (let i = 0; i < prediction.length; i++) {
+            if (prediction[i].probability > maxProb) {
+                maxProb = prediction[i].probability;
+                bestGesture = prediction[i].className;
+            }
+        }
+        
+        // Mappage geste => emoji
+        const emojiMap = {
+            pierre: "✊",
+            feuille: "🖐️",
+            ciseau: "✌️"
+        };
+        
+        // Afficher "Votre choix: [geste + emoji]"
+        labelContainer.innerHTML = `Votre choix : ${bestGesture} ${emojiMap[bestGesture] || ''}`;
     }
-}
