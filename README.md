@@ -1,1 +1,1 @@
-"# paper-cisors-rock" 
+Il s'agit du célèbre jeu "pierre-feuille-ciseaux", dans lequel la webcam et l'intelligence artificielle sont utilisées pour reconnaître les gestes du joueur. Le modèle a été entraîné via Teachable Machine.
