@@ -1,0 +1,97 @@
+/* General styles for the Rock-Paper-Scissors game */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f0f0;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    
+}
+
+
+
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 30px;
+}
+
+.container {
+    border: 1px solid #515151;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+button {
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    font-size: 1.2em;
+    background-color: #3c3c3c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    
+}
+
+button:hover {
+    background-color: #656565;
+}
+
+#button {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: center;
+}
+
+#webcam-container {
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+}
+
+
+#label-container {
+    margin-top: 10px;
+    font-size: 1.2em;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+#resultat {
+    margin-top: 30px;
+    font-size: 1.5em;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+}
+
+#score {
+    margin-top: 30px;
+    font-size: 1em;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+
+}
+
+@media (max-width: 600px) {
+    h1 {
+        font-size: 2em;
+    }
+
+    button {
+        font-size: 1em;
+        padding: 8px 16px;
+    }
+
+    #resultat {
+        font-size: 1.2em;
+    }
+}
